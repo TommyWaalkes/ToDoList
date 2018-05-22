@@ -1,0 +1,27 @@
+<html ng-app="todoApp">
+
+<head>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="todoController as todo">
+
+    <h2>To Do</h2>
+    <input type="text" ng-model="taskFilter" placeholder="Search for a task" />
+    <input type="text" ng-model="taskFilter" placeholder="Search for a task" />
+    {{taskFilter}}
+    <ol>
+        <li ng-repeat="t in todo.tasks | filter: taskFilter track by $index" ng-class="t.className">
+            <button ng-click="todo.addCompleted($index)">Complete</button>
+            {{t.task}}
+            <button ng-click="todo.removeTask($index)">X</button>
+        </li>
+    </ol>
+    <button ng-click="todo.addTask(todo.newTask)">Add</button>
+    <input type="text" ng-model="todo.newTask" placeholder="Add a task" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="module.js"></script>
+    <script src="todoController.js"></script>
+</body>
+
+</html>
