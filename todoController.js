@@ -23,6 +23,11 @@
     }
 
     vm.addTask = function(taskName){
+      // | filter: taskFilter track by $index
+      //pull out the desired movie from your movie[]
+      //add it to the watch list
+
+
       console.log(taskName);
       let task = {
         task: taskName,
